@@ -21,11 +21,11 @@ pipeline {
         }
         stage('mail-notification') {
             steps {
-                emailext
+                emailext(
                     subject: '$DEFAULT_SUBJECT', 
                     to: 'ibtissammdarbi@gmail.com', 
                     body: 'test'
-              
+                )
             }
         }
     }
