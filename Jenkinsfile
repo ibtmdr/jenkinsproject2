@@ -21,8 +21,7 @@ pipeline {
         }
         stage('mail-notification') {
             steps {
-                emailext
-                    mimeType: 'text/html', 
+                emailext:
                     replyTo: 'build projet', 
                     subject: "$DEFAULT_SUBJECT", 
                     to: 'ibtissammdarbi@gmail.com', 
