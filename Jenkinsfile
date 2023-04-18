@@ -22,7 +22,6 @@ pipeline {
         stage('mail-notification') {
             steps {
                 emailext
-                    replyTo: 'build projet', 
                     subject: "$DEFAULT_SUBJECT", 
                     to: 'ibtissammdarbi@gmail.com', 
                     body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
