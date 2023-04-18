@@ -21,14 +21,14 @@ pipeline {
         }
         stage('mail-notification') {
             steps {
-                emailext(mimeType: 'text/html', 
-                replyTo: 'build projet', 
-                subject: "${env.JOB_NAME} - Build# ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}", 
-                to: 'ibtissammdarbi', 
-                body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                        <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-                )
+                emailext
+                    mimeType: 'text/html', 
+                    replyTo: 'build projet', 
+                    subject: "${env.JOB_NAME} - Build# ${env.BUILD_NUMBER} - ${env.BUILD_STATUS}", 
+                    to: 'ibtissammdarbi@gmail.com', 
+                    body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+                            <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""" // ,
+                // recipientProviders: [[$class: 'DevelopersRecipientProvider']]
             }
         }
     }
